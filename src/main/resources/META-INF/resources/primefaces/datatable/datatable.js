@@ -200,7 +200,7 @@ PrimeFaces.widget.DataTableExtensions = {
 						columnValue = PrimeFaces.widget.DataTableUtils.stripHtml(data[field].toLowerCase());
 						
 						// Check if value starts with filter value
-						if(columnValue.indexOf(filterValue) != 0) {
+						if(columnValue.indexOf(filterValue) == -1) {
 							shouldAdd = false;
 							break;
 						}
