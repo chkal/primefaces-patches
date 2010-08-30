@@ -268,10 +268,8 @@
 	
 	<distributionManagement>
 		<repository>
-			<id>prime-repo</id>
-			<name>Prime Teknoloji maven repository</name>
-			<url>ftp://prime.com.tr/public_html/repository</url>
-			<uniqueVersion>false</uniqueVersion>
+			<id>gh-pages</id>
+			<url>file:///${basedir}/../primefaces-patches-pages/repository/</url>
 		</repository>
 	</distributionManagement>
 	
