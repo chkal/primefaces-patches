@@ -7,7 +7,7 @@ Maven Repository:
 
   <repository>
     <id>stratdev-repo</id>
-    <url>http://chkal.github.com/primefaces-patches/repository</url>
+    <url>http://chkal.github.com/primefaces-patches/repository/ </url>
   </repository>
 
 
