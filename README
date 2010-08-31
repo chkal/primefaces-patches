@@ -24,6 +24,9 @@ Dependency:
 Changelog:
 ----------
 
+  Version: 2.1-ck2
+     * Fixed p:dataExporter to trim cell contents
+
   Version: 2.1-ck1
      * Compiled against Apache POI 3.6 instead of 3.2
      * Enable fulltext search for client-side p:dataTable filtering
