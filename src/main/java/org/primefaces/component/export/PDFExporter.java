@@ -122,7 +122,7 @@ public class PDFExporter extends Exporter {
             }
 		}  
         
-        pdfTable.addCell(new Paragraph(buffer.toString(), font));
+        pdfTable.addCell(new Paragraph(buffer.toString().trim(), font));
     }
     
     private void writePDFToResponse(HttpServletResponse response, ByteArrayOutputStream baos, String fileName) throws IOException, DocumentException {     

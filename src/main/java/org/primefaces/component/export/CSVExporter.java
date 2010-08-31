@@ -110,7 +110,7 @@ public class CSVExporter extends Exporter {
 			}
 		}
 		
-		writer.write("\"" + buffer.toString() + "\"");
+		writer.write("\"" + buffer.toString().trim() + "\"");
        
 	}
 }

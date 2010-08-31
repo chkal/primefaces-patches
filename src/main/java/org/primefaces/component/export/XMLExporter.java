@@ -118,7 +118,7 @@ public class XMLExporter extends Exporter {
 			}
 		}
 
-		writer.write(buffer.toString());
+		writer.write(buffer.toString().trim());
 		
 		writer.write("</" + tag + ">\n");
 	}

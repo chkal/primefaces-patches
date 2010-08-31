@@ -101,7 +101,7 @@ public class ExcelExporter extends Exporter {
             }
 		}  
         
-        cell.setCellValue(new HSSFRichTextString(buffer.toString()));
+        cell.setCellValue(new HSSFRichTextString(buffer.toString().trim()));
     }
     
     private void writeExcelToResponse(HttpServletResponse response, HSSFWorkbook generatedExcel, String filename) throws IOException {
