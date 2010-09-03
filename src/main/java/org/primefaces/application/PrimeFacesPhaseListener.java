@@ -101,7 +101,7 @@ public class PrimeFacesPhaseListener implements PhaseListener {
 				writer.write("<partialResponse>");
 				
 				if(requestContext.getAjaxRedirectUrl() != null) {
-					writer.write("<redirect-url>" + RequestContext.getCurrentInstance().getAjaxRedirectUrl() + "</redirect-url>");
+					writer.write("<redirect-url>" + escapeXml(RequestContext.getCurrentInstance().getAjaxRedirectUrl()) + "</redirect-url>");
 				} else {
 					if(idsToUpdate != null) {
 						writeComponents(facesContext, idsToUpdate);
@@ -288,5 +288,13 @@ public class PrimeFacesPhaseListener implements PhaseListener {
 		}catch(IOException exception) {
 			exception.printStackTrace();
 		}
+	}
+
+	private String escapeXml(String s) {
+	  return s
+	      .replace("&", "&amp;")
+	      .replace("<", "&lt;")
+	      .replace(">", "&gt;")
+	      .replace("'", "&apos;");
 	}
 }
