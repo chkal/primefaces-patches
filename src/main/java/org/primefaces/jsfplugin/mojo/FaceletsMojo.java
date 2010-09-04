@@ -27,6 +27,7 @@ import java.util.List;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.primefaces.jsfplugin.digester.Attribute;
 
 import org.primefaces.jsfplugin.digester.Component;
 
@@ -90,7 +91,7 @@ public class FaceletsMojo extends BaseFacesMojo{
 			writeStandardFaceletsTaglib(writer);
 		}
 		
-		for (Iterator<Component> iterator = components.iterator(); iterator.hasNext();) {
+		for(Iterator<Component> iterator = components.iterator(); iterator.hasNext();) {
 			Component component = iterator.next();
 			writer.write("\t<tag>\n");
 			writer.write("\t\t<tag-name>");
@@ -112,7 +113,35 @@ public class FaceletsMojo extends BaseFacesMojo{
 				writer.write(component.getComponentHandlerClass());
 				writer.write("</handler-class>\n");
 			}
+
 			writer.write("\t\t</component>\n");
+
+            Attribute attribute = null;
+            for(Iterator<Attribute> attr = component.getAttributes().iterator(); attr.hasNext();) {
+                attribute = attr.next();
+
+                writer.write("\t\t<attribute>\n");
+
+                writer.write("\t\t\t<description>");
+                writer.write(attribute.getDescription());
+                writer.write("</description>\n");
+
+                writer.write("\t\t\t<name>");
+                writer.write(attribute.getName());
+                writer.write("</name>\n");
+
+                writer.write("\t\t\t<required>");
+                writer.write(String.valueOf(attribute.isRequired()));
+                writer.write("</required>\n");
+
+                writer.write("\t\t\t<type>");
+                writer.write(attribute.getType());
+                writer.write("</type>\n");
+
+                writer.write("\t\t</attribute>\n");
+            }
+            
+
 			writer.write("\t</tag>\n");
 		}
 		
