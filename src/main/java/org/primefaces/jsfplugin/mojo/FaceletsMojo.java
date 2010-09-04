@@ -123,7 +123,7 @@ public class FaceletsMojo extends BaseFacesMojo{
                 writer.write("\t\t<attribute>\n");
 
                 writer.write("\t\t\t<description>");
-                writer.write(attribute.getDescription());
+                writer.write( attribute.getDescription() != null ? escapeXml(attribute.getDescription()) : "" );
                 writer.write("</description>\n");
 
                 writer.write("\t\t\t<name>");
@@ -181,4 +181,12 @@ public class FaceletsMojo extends BaseFacesMojo{
 			return;
 		}
 	}
+
+  private String escapeXml(String s) {
+    return s
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace("'", "&apos;");
+  }
 }
