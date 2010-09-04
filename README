@@ -2,34 +2,4 @@
  Fork of PrimeFaces 2.1
 ========================
 
-Maven Repository:
------------------
-
-  <repository>
-    <id>primefaces-ck</id>
-    <url>http://chkal.github.com/primefaces-patches/repository/ </url>
-  </repository>
-
-
-Dependency:
------------
-
-  <dependency>
-    <groupId>org.primefaces</groupId>
-    <artifactId>primefaces</artifactId>
-    <version>2.1-ck3</version>
-  </dependency>
-
-
-Changelog:
-----------
-
-  Version: 2.1-ck3
-     * Correct XML escaping for <redirect-url> in AJAX responses
-
-  Version: 2.1-ck2
-     * Fixed p:dataExporter to trim cell contents
-
-  Version: 2.1-ck1
-     * Compiled against Apache POI 3.6 instead of 3.2
-     * Enable fulltext search for client-side p:dataTable filtering
+See the wiki for details!
