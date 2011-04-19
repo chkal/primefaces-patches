@@ -119,7 +119,7 @@ public class DataTableRenderer extends CoreRenderer implements PartialRenderer {
 				else if(columnValue == null) {
 					shouldAdd = false;
 					break;
-				} else if(!String.valueOf(columnValue).toLowerCase().startsWith(filterValue.toLowerCase())) {
+				} else if(!String.valueOf(columnValue).toLowerCase().contains(filterValue.toLowerCase())) {
 					shouldAdd = false;
 					break;
 				}
