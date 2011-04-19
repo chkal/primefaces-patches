@@ -51,7 +51,7 @@ PrimeFaces.ajax.AjaxUtils = {
 	},
 	
 	updateState: function(state) {
-		jQuery('#javax\\.faces\\.ViewState').each(function(index) {
+		jQuery("input[name='javax.faces.ViewState']").each(function(index) {
 			jQuery(this).replaceWith(state);
 		}); 
 	},
