@@ -271,6 +271,10 @@ public class CoreRenderer extends Renderer {
 		
 		req.append("});");
 		
+		// Workaround for IE6/IE7 bug
+		// See: http://www.ontola.com/en/javascript-onclick-return-false-does-not-work-in-i
+		req.append("event.returnValue=false;");
+
 		req.append("return false;");
 		
 		return req.toString();
