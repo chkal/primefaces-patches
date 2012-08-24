@@ -50,7 +50,27 @@ public class TabViewRenderer extends CoreRenderer implements PartialRenderer {
 	
 	public void encodePartially(FacesContext facesContext, UIComponent component) throws IOException {
 		TabView tabView = (TabView) component;
-		Tab activeTab = (Tab) tabView.getChildren().get(tabView.getActiveIndex());
+
+		Tab activeTab = null;
+
+		int index = 0;
+		for( UIComponent child : tabView.getChildren() ) {
+
+			// ignore children that are not rendered
+			if( !child.isRendered() ) {
+				continue;
+			}
+
+			// is this the active tab?
+			if( index == tabView.getActiveIndex() ) {
+				activeTab = (Tab) child;
+				break;
+			}
+
+			// proceed with next index
+			index++;
+
+		}
 		
 		ServletResponse response = (ServletResponse) facesContext.getExternalContext().getResponse();
 		response.setContentType("text/xml");
