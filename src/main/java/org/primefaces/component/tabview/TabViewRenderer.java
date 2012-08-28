@@ -204,6 +204,9 @@ public class TabViewRenderer extends CoreRenderer implements PartialRenderer {
 	private void encodeContents(FacesContext facesContext, TabView tabView, int activeTabIndex) throws IOException {
 		ResponseWriter writer = facesContext.getResponseWriter();
 		
+		// index of the tab ignoring tabs that are not rendered
+		int visibleTabIndex = 0;
+		
 		for(int i = 0; i < tabView.getChildren().size(); i++) {
 			UIComponent kid = tabView.getChildren().get(i);
 			
@@ -213,13 +216,16 @@ public class TabViewRenderer extends CoreRenderer implements PartialRenderer {
 				writer.writeAttribute("id", tab.getClientId(facesContext), null);
 				
 				if(tabView.isDynamic()) {
-					if(i == activeTabIndex)
+					if(visibleTabIndex == activeTabIndex)
 						renderChildren(facesContext, tab);
 				} else {
 					renderChildren(facesContext, tab);
 				}
 				
 				writer.endElement("div");
+				
+				// proceed with the next tab
+				visibleTabIndex++;
 			}
 		}
 	}
